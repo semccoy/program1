@@ -261,6 +261,6 @@ public class BaileyCrandall implements Constants {
         }
         
         Graph g = new Graph(al);
-        g.start();
+        g.bigBang(width, height,0.1);
     }
 }
