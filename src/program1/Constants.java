@@ -7,10 +7,13 @@ import javalib.worldimages.*;
 public interface Constants {
     ArrayList<Double> al = new ArrayList<Double>();
     
-    Score playOnHuh = new Score(1);
+    
     
     // testing stuff
-    int numberOfTests = 100;
+    int numberOfTests = 1;
+    
+    // functionality stuff
+    Score playOnHuh = new Score(1);
     
     // background stuff
     int width = 1440;

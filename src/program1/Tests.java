@@ -8,11 +8,11 @@ public class Tests extends Utilities implements Constants {
     public static void testAll() {
         for (int i = 0; i < numberOfTests; i++) {
             testScoreIncrementing(new Score());
+
             testWorldEnd(new Graph(new ArrayList<Double>()));
 
             bcTest();
 
-            
         }
         System.out.println("All tests passed " + numberOfTests + " times! :)\n");
     }
@@ -64,5 +64,4 @@ public class Tests extends Utilities implements Constants {
         }
         playOnHuh.score = 1;
     }
-
 }

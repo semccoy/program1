@@ -254,12 +254,11 @@ public class BaileyCrandall implements Constants {
 
     public static void go() {
         BaileyCrandall bc = new BaileyCrandall();
-        for (int k = 0; k < 100; k++) {
+        for (int k = 0; k < 1000; k++) {
             for (int i = 0; i < 1000; i++) {
                 al.add(bc.nextDouble());
             }
         }
-        
         Graph g = new Graph(al);
         g.bigBang(width, height,0.1);
     }
