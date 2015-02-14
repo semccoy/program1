@@ -1,7 +1,6 @@
 package program1;
 
 // source: http://javarng.googlecode.com/svn/trunk/com/modp/random/BaileyCrandall.java
-import java.util.ArrayList;
 
 public class BaileyCrandall implements Constants {
 
@@ -260,5 +259,8 @@ public class BaileyCrandall implements Constants {
                 al.add(bc.nextDouble());
             }
         }
+        
+        Graph g = new Graph(al);
+        g.start();
     }
 }
