@@ -1,8 +1,9 @@
 package program1;
 
 // source: http://javarng.googlecode.com/svn/trunk/com/modp/random/BaileyCrandall.java
+import java.util.ArrayList;
 
-public class BaileyCrandall {
+public class BaileyCrandall implements Constants {
 
     /**
      * Constant: 3<sup>33</sup>
@@ -254,13 +255,10 @@ public class BaileyCrandall {
 
     public static void go() {
         BaileyCrandall bc = new BaileyCrandall();
-        double x = 0.0;
         for (int k = 0; k < 100; k++) {
             for (int i = 0; i < 1000; i++) {
-                x += bc.nextDouble();
+                al.add(bc.nextDouble());
             }
         }
-        System.out.println(x);
     }
-
 }

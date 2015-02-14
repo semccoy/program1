@@ -4,8 +4,11 @@ public class Tests {
     
     public static void testAll() {
         bcTest();
+        
+        System.out.println("All tests passed! :)\n");
     }
 
+    // makes sure bc is generating numbers in the range [0,1)
     public static void bcTest() {
         BaileyCrandall bc = new BaileyCrandall();
         double d = 0.0;
