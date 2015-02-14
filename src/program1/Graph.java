@@ -32,7 +32,7 @@ public class Graph extends World implements Constants {
         if (key.equals("r")) {
             System.out.println("thanks for hitting " + key);
         } else if (key.equals("x")) {
-            playOn.increaseBy(-1);
+            playOnHuh.increaseBy(-1);
         }
         // return refreshed image?
         return new Graph(this.al);
@@ -40,9 +40,10 @@ public class Graph extends World implements Constants {
 
     public WorldEnd worldEnds() {
         String finalText = "Thanks for testing this out";
-        if (playOn.score != 1) {
+        if (playOnHuh.score != 1) {
             return new WorldEnd(true, new OverlayImages(this.makeImage(),
                     new TextImage(new Posn(width / 2, height / 2 + 150), finalText, 30, Color.white)));
+            
         } else {
             return new WorldEnd(false, this.makeImage());
         }
