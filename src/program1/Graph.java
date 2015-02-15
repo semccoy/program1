@@ -15,10 +15,15 @@ public class Graph extends JPanel implements Constants {
     private Image drawPixels() {
         BufferedImage bi = new BufferedImage(paneX, paneY, BufferedImage.TYPE_INT_RGB);
         Graphics g = bi.getGraphics();
+        int pos = 0;
         for (int x = 0; x < paneX; x++) {
             for (int y = 0; y < paneY; y++) {
-                g.setColor(randomColor());
+                int opacity = (int) Math.floor(al.get(pos) * 256);
+                Color darkness = new Color(opacity, opacity, opacity);
+                g.setColor(darkness);
                 g.drawLine(x, y, x, y);
+                pos++;
+
             }
         }
         return bi;
@@ -32,22 +37,5 @@ public class Graph extends JPanel implements Constants {
         frame.setVisible(true);
     }
 
-     //    public WorldImage drawPixels() {
-//        int pos = 0;
-//        for (int loop = 0; loop < 10; loop++) {
-//            for (int w = 0; w < width; w++) {
-//                // random number rounded down to an int that can be used to color the pixel
-//                int opacity = (int) Math.floor(al.get(pos) * 256);
-//                pos++;
-//                RectangleImage pixel = new RectangleImage(
-//                        new Posn(base.x + w, base.y + loop), 1, 1,
-//                        new Color(opacity, opacity, opacity));
-//                temp = new OverlayImages(temp, pixel);
-//            }
-//            BaileyCrandall.go();
-//
-//        }
-//
-//        return temp;
-//    }
+
 }
