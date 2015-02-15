@@ -37,5 +37,4 @@ public class Graph extends JPanel implements Constants {
         frame.setVisible(true);
     }
 
-
 }

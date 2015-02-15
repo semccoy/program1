@@ -1,10 +1,8 @@
 package program1;
 
 // source: http://javarng.googlecode.com/svn/trunk/com/modp/random/BaileyCrandall.java
-
 // this is just some random number generator someone posted online
 // the plan is to compare it with some of the ones we talked about in class
-
 public class BaileyCrandall implements Constants {
 
     /**
@@ -257,7 +255,7 @@ public class BaileyCrandall implements Constants {
 
     public static void populateAL() {
         BaileyCrandall bc = new BaileyCrandall();
-        for (int i = 0; i < width*height; i++) {
+        for (int i = 0; i < width * height; i++) {
             al.add(bc.nextDouble());
         }
     }
