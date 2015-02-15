@@ -1,58 +1,53 @@
 package program1;
 
 import java.awt.*;
-import java.util.ArrayList;
-import javalib.funworld.*;
-import javalib.worldimages.*;
+import java.awt.image.*;
+import javax.swing.*;
+import static program1.Utilities.*;
 
-public class Graph extends World implements Constants {
+public class Graph extends JPanel implements Constants {
 
-    WorldImage temp = new OverlayImages(background, background);
-
-    public Graph(ArrayList<Double> al) {
-        if (!al.isEmpty()) {
-            drawPixels();
-        }
+    public void paint(Graphics g) {
+        Image img = drawPixels();
+        g.drawImage(img, indentX, indentY, this);
     }
 
-    public WorldImage drawPixels() {
-        int pos = 0;
-        for (int w = 0; w < 50; w++) {
-            for (int h = 0; h < 50; h++) {
-                // random number rounded down to an int that can be used to color the pixel
-                int opacity = (int) Math.floor(al.get(pos) * 256);
-                pos++;
-                RectangleImage pixel = new RectangleImage(
-                        new Posn(base.x + w, base.y + h), 1, 1,
-                        new Color(opacity, opacity, opacity));
-                temp = new OverlayImages(temp, pixel);
+    private Image drawPixels() {
+        BufferedImage bi = new BufferedImage(paneX, paneY, BufferedImage.TYPE_INT_RGB);
+        Graphics g = bi.getGraphics();
+        for (int x = 0; x < paneX; x++) {
+            for (int y = 0; y < paneY; y++) {
+                g.setColor(randomColor());
+                g.drawLine(x, y, x, y);
             }
         }
-        return temp;
+        return bi;
     }
 
-    public WorldImage makeImage() {
-        return new OverlayImages(universe,
-                new OverlayImages(background, drawPixels()));
+    public static void go() {
+        JFrame frame = new JFrame();
+        frame.getContentPane().add(new Graph());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(width, height);
+        frame.setVisible(true);
     }
 
-    public World onKeyEvent(String key) {
-        if (key.equals("r")) {
-            System.out.println("thanks for hitting " + key);
-        } else if (key.equals("x")) {
-            playOnHuh.increaseBy(-1);
-        }
-        return new Graph(this.al);
-    }
-
-    public WorldEnd worldEnds() {
-        String finalText = "Thanks for testing this out";
-        if (playOnHuh.score != 1) {
-            return new WorldEnd(true, new OverlayImages(this.makeImage(),
-                    new TextImage(new Posn(width / 2, height / 2 + 150), finalText, 30, Color.white)));
-        } else {
-            return new WorldEnd(false, this.makeImage());
-        }
-    }
-
+     //    public WorldImage drawPixels() {
+//        int pos = 0;
+//        for (int loop = 0; loop < 10; loop++) {
+//            for (int w = 0; w < width; w++) {
+//                // random number rounded down to an int that can be used to color the pixel
+//                int opacity = (int) Math.floor(al.get(pos) * 256);
+//                pos++;
+//                RectangleImage pixel = new RectangleImage(
+//                        new Posn(base.x + w, base.y + loop), 1, 1,
+//                        new Color(opacity, opacity, opacity));
+//                temp = new OverlayImages(temp, pixel);
+//            }
+//            BaileyCrandall.go();
+//
+//        }
+//
+//        return temp;
+//    }
 }

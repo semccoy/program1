@@ -255,13 +255,10 @@ public class BaileyCrandall implements Constants {
         return;
     }
 
-    public static void go() {
+    public static void populateAL() {
         BaileyCrandall bc = new BaileyCrandall();
-        // add 1m things to al
         for (int i = 0; i < width*height; i++) {
             al.add(bc.nextDouble());
         }
-        Graph g = new Graph(al);
-        g.bigBang(width, height, 0.1);
     }
 }
