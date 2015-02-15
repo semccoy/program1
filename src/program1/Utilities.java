@@ -12,6 +12,11 @@ public class Utilities implements Constants {
         return new Random().nextInt((max - min) + 1) + min;
     }
 
+    public static double randomDouble(double min, double max) {
+        Random r = new Random();
+        return min + (max - min) * r.nextDouble();
+    }
+
     public static Color randomColor() {
         return new Color(randomInt(0, 255), randomInt(0, 255), randomInt(0, 255));
     }
