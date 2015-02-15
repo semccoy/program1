@@ -7,27 +7,33 @@ import javalib.worldimages.*;
 
 public class Graph extends World implements Constants {
 
-    public Graph(ArrayList<Double> al) {
-        // bitmap the arraylist
+    WorldImage temp = new OverlayImages(background, background);
 
+    public Graph(ArrayList<Double> al) {
         if (!al.isEmpty()) {
-            doThings();
+            drawPixels();
         }
     }
 
-    public static void doThings() {
-        for (int w = 0; w < width; w++) {
-            for (int h = 0; h < height; h++) {
-                System.out.println(al.get(w + h));
+    public WorldImage drawPixels() {
+        int pos = 0;
+        for (int w = 0; w < 50; w++) {
+            for (int h = 0; h < 50; h++) {
+                // random number rounded down to an int that can be used to color the pixel
+                int opacity = (int) Math.floor(al.get(pos) * 256);
+                pos++;
+                RectangleImage pixel = new RectangleImage(
+                        new Posn(base.x + w, base.y + h), 1, 1,
+                        new Color(opacity, opacity, opacity));
+                temp = new OverlayImages(temp, pixel);
             }
         }
+        return temp;
     }
-
-    WorldImage border = new RectangleImage(base, width - 400, height - 400, Color.red);
 
     public WorldImage makeImage() {
         return new OverlayImages(universe,
-                new OverlayImages(background, border));
+                new OverlayImages(background, drawPixels()));
     }
 
     public World onKeyEvent(String key) {
@@ -36,7 +42,6 @@ public class Graph extends World implements Constants {
         } else if (key.equals("x")) {
             playOnHuh.increaseBy(-1);
         }
-        // return refreshed image?
         return new Graph(this.al);
     }
 
@@ -45,7 +50,6 @@ public class Graph extends World implements Constants {
         if (playOnHuh.score != 1) {
             return new WorldEnd(true, new OverlayImages(this.makeImage(),
                     new TextImage(new Posn(width / 2, height / 2 + 150), finalText, 30, Color.white)));
-
         } else {
             return new WorldEnd(false, this.makeImage());
         }

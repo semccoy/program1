@@ -21,7 +21,7 @@ public class Program1 extends World implements Constants {
 //        return new Game2(universe);
 //    }
     public static void main(String[] args) throws Exception {
-        Tests.testAll();
+//        Tests.testAll();
 
         BaileyCrandall.go();
 

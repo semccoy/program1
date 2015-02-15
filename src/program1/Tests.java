@@ -8,7 +8,6 @@ public class Tests extends Utilities implements Constants {
     public static void testAll() {
         for (int i = 0; i < numberOfTests; i++) {
             testScoreIncrementing(new Score());
-
             testWorldEnd(new Graph(new ArrayList<Double>()));
 
             bcTest();
@@ -21,14 +20,12 @@ public class Tests extends Utilities implements Constants {
     public static void bcTest() {
         BaileyCrandall bc = new BaileyCrandall();
         double d = 0.0;
-        for (int k = 0; k < 100; k++) {
-            for (int i = 0; i < 1000; i++) {
-                d = bc.nextDouble();
-                if (d >= 1) {
-                    throw new RuntimeException("bcTest - d >= 1");
-                } else if (d < 0) {
-                    throw new RuntimeException("bcTest - d < 0");
-                }
+        for (int i = 0; i < 10000; i++) {
+            d = bc.nextDouble();
+            if (d >= 1) {
+                throw new RuntimeException("bcTest - d >= 1");
+            } else if (d < 0) {
+                throw new RuntimeException("bcTest - d < 0");
             }
         }
     }

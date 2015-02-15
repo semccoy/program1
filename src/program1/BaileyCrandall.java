@@ -2,6 +2,9 @@ package program1;
 
 // source: http://javarng.googlecode.com/svn/trunk/com/modp/random/BaileyCrandall.java
 
+// this is just some random number generator someone posted online
+// the plan is to compare it with some of the ones we talked about in class
+
 public class BaileyCrandall implements Constants {
 
     /**
@@ -254,12 +257,11 @@ public class BaileyCrandall implements Constants {
 
     public static void go() {
         BaileyCrandall bc = new BaileyCrandall();
-        for (int k = 0; k < 1000; k++) {
-            for (int i = 0; i < 1000; i++) {
-                al.add(bc.nextDouble());
-            }
+        // add 1m things to al
+        for (int i = 0; i < width*height; i++) {
+            al.add(bc.nextDouble());
         }
         Graph g = new Graph(al);
-        g.bigBang(width, height,0.1);
+        g.bigBang(width, height, 0.1);
     }
 }
