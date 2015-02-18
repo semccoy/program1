@@ -1,6 +1,7 @@
 package program1;
 
 import java.awt.*;
+import java.awt.event.WindowEvent;
 import java.awt.image.*;
 import javax.swing.*;
 import static program1.Utilities.*;
@@ -36,6 +37,12 @@ public class Graph extends JPanel implements Constants {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(width, height);
         frame.setVisible(true);
+//        try {
+//            Thread.sleep(3000);                 
+//        } catch (InterruptedException ex) {
+//            Thread.currentThread().interrupt();
+//        }
+//        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
     }
 
 }
