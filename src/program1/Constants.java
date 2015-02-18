@@ -10,7 +10,9 @@ public interface Constants {
     int numberOfTests = 1;
 
     // functionality stuff
+    Score rbrPeriod = new Score(10);
     Score playOnHuh = new Score(1);
+    
 
     // background stuff
     int width = 1440;

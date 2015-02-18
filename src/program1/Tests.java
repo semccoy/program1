@@ -6,9 +6,9 @@ public class Tests extends Utilities implements Constants {
         for (int i = 0; i < numberOfTests; i++) {
             testScoreIncrementing(new Score());
             bcTest();
-            rbrTest();
-            jrTest();
             randuTest();
+            jrTest();
+            rbrTest();
 
         }
         System.out.println("All tests passed " + numberOfTests + " times! :)\n");
