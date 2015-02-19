@@ -12,7 +12,7 @@ public class RANDU implements Constants {
 
     public RANDU() {
         a = 65539;
-        c = randomInt(0,11);
+        c = randomInt(0, 11);
         m = (new BigInteger("2")).pow(31).longValue();
         reset();
     }

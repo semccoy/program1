@@ -4,7 +4,6 @@ import java.io.*;
 import static program1.Constants.*;
 
 // source: http://www.cs.gmu.edu/~sean/research/mersenne/MersenneTwister.java
-
 public strictfp class MersenneTwister extends java.util.Random implements Serializable, Cloneable {
 
     // Serialization

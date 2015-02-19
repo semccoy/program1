@@ -13,5 +13,4 @@ class ReallyBadRandom implements Constants {
             }
         }
     }
-
 }

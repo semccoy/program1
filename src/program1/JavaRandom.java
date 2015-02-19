@@ -13,5 +13,4 @@ public class JavaRandom implements Constants {
             al.add(randomDouble(0, 1));
         }
     }
-
 }

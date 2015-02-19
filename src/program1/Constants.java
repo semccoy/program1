@@ -16,7 +16,7 @@ public interface Constants {
     // functionality stuff
     Score rbrPeriod = new Score(10);
     Score srPeriod = new Score(randomInt(10000, 15000));
-    int periodChange = randomInt(3,199); // can make this whatever
+    int periodChange = randomInt(3, 199); // can make this whatever
     Score playOnHuh = new Score(1);
     Score bcHuh = new Score(0);
     Score randuHuh = new Score(0);

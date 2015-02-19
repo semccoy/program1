@@ -20,7 +20,7 @@ public class ScatteredRandom implements Constants {
 
     public static void genPeriodList(int length) {
         for (int i = 0; i < length; i++) {
-            temp.add(randomDouble(0,1));
+            temp.add(randomDouble(0, 1));
         }
 
     }
