@@ -254,6 +254,7 @@ public class BaileyCrandall implements Constants {
     }
 
     public static void populateAL() {
+        bcHuh.increaseBy(1);
         BaileyCrandall bc = new BaileyCrandall();
         for (int i = 0; i < width * height; i++) {
             al.add(bc.nextDouble());

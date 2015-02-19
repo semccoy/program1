@@ -27,6 +27,7 @@ public class RANDU implements Constants {
     }
 
     public static void populateAL() {
+        randuHuh.increaseBy(1);
         RANDU rdu = new RANDU();
         for (int i = 0; i < width * height; i++) {
             al.add(rdu.nextDouble());

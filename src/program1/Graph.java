@@ -2,7 +2,6 @@ package program1;
 
 import java.awt.*;
 import java.awt.image.*;
-import java.util.Random;
 import javax.swing.*;
 import static program1.Utilities.*;
 
@@ -28,7 +27,6 @@ public class Graph extends JPanel implements Constants {
                 g.setColor(darkness);
                 g.drawLine(x, y, x, y);
                 pos++;
-
             }
         }
         return bi;
@@ -41,6 +39,8 @@ public class Graph extends JPanel implements Constants {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(width, height);
             frame.setVisible(true);
+            
+            // for looping images
             delay(1000);
             rbrPeriod.increaseBy(periodChange);
             srPeriod.score = randomInt(10000, 15000);
@@ -57,17 +57,27 @@ public class Graph extends JPanel implements Constants {
     }
 
     public static void shift() {
-        if (srHuh.equals(0)) {
-            int oldSize = al.size();
-            ReallyBadRandom.populateAL();
-            int newSize = al.size();
-            stagger.increaseBy(newSize - oldSize);
-        } else {
-            int oldSize = al.size();
-            ScatteredRandom.populateAL();
-            int newSize = al.size();
-            stagger.increaseBy(newSize - oldSize);
+        int oldSize = al.size();
+        if (!mtHuh.equals(0)) {
+            MersenneTwister.populateAL();
         }
+        if (!rbrHuh.equals(0)) {
+            ReallyBadRandom.populateAL();
+        }
+        if (!srHuh.equals(0)) {
+            ScatteredRandom.populateAL();
+        }
+        if (!bcHuh.equals(0)) {
+            BaileyCrandall.populateAL();
+        }
+        if (!jrHuh.equals(0)) {
+            JavaRandom.populateAL();
+        }
+        if (!randuHuh.equals(0)) {
+            RANDU.populateAL();
+        }
+        int newSize = al.size();
+        stagger.increaseBy(newSize - oldSize);
     }
 
 }

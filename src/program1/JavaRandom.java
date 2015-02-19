@@ -8,6 +8,7 @@ public class JavaRandom implements Constants {
     }
 
     public static void populateAL() {
+        jrHuh.increaseBy(1);
         for (int i = 0; i < width * height; i++) {
             al.add(randomDouble(0, 1));
         }

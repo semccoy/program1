@@ -1,5 +1,7 @@
 package program1;
 
+import java.util.ArrayList;
+
 public class Tests extends Utilities implements Constants {
 
     public static void testAll() {
@@ -9,6 +11,7 @@ public class Tests extends Utilities implements Constants {
             randuTest();
             jrTest();
             rbrTest();
+            srTest();
 
         }
         System.out.println("All tests passed " + numberOfTests + " times! :)\n");
@@ -35,18 +38,15 @@ public class Tests extends Utilities implements Constants {
         }
     }
 
-    // makes sure rbr is generating numbers in the range [0,1)
-    public static void rbrTest() {
+    // makes sure randu is generating numbers in the range [0,1)
+    public static void randuTest() {
+        RANDU rdu = new RANDU();
         double d = 0.0;
-        for (int i = 0; i < width * height; i++) {
-            for (double x = 0; x < 10; x++) {
-                d = x / 10;
-            }
-        }
+        d = rdu.nextDouble();
         if (d >= 1) {
-            throw new RuntimeException("rbrTest - d >= 1");
+            throw new RuntimeException("randuTest - d >= 1");
         } else if (d < 0) {
-            throw new RuntimeException("rbrTest - d < 0");
+            throw new RuntimeException("randuTest - d < 0");
         }
     }
 
@@ -64,16 +64,36 @@ public class Tests extends Utilities implements Constants {
             throw new RuntimeException("jrTest - d < 0");
         }
     }
-    
-    // makes sure randu is generating numbers in the range [0,1)
-    public static void randuTest() {
-       RANDU rdu = new RANDU();
+
+    // makes sure rbr is generating numbers in the range [0,1)
+    public static void rbrTest() {
         double d = 0.0;
-        d = rdu.nextDouble();
-         if (d >= 1) {
-            throw new RuntimeException("randuTest - d >= 1");
+        for (int i = 0; i < width * height; i++) {
+            for (double x = 0; x < 10; x++) {
+                d = x / 10;
+            }
+        }
+        if (d >= 1) {
+            throw new RuntimeException("rbrTest - d >= 1");
         } else if (d < 0) {
-            throw new RuntimeException("randuTest - d < 0");
+            throw new RuntimeException("rbrTest - d < 0");
+        }
+    }
+
+    // makes sure sr is generating numbers in the range [0,1)
+    public static void srTest() {
+        ArrayList<Double> tempy = new ArrayList<Double>();
+        int size = randomInt(100, 200);
+        for (int i = 0; i < size; i++) {
+            tempy.add(randomDouble(0, 1));
+        }
+        for (int i = 0; i < width * height; i++) {
+            double d = tempy.get(i % size);
+            if (d >= 1) {
+                throw new RuntimeException("rbrTest - d >= 1");
+            } else if (d < 0) {
+                throw new RuntimeException("rbrTest - d < 0");
+            }
         }
     }
 
