@@ -39,7 +39,7 @@ public class Graph extends JPanel implements Constants {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(width, height);
             frame.setVisible(true);
-            
+
             // for looping images
             delay(1000);
             rbrPeriod.increaseBy(periodChange);
@@ -57,27 +57,24 @@ public class Graph extends JPanel implements Constants {
     }
 
     public static void shift() {
+
         int oldSize = al.size();
-        if (!mtHuh.equals(0)) {
+        System.out.println(mtHuh.score);
+        System.out.println(rbrHuh.score);
+        if (mtHuh.score > 0) {
             MersenneTwister.populateAL();
         }
-        if (!rbrHuh.equals(0)) {
+        if (rbrHuh.score > 0) {
             ReallyBadRandom.populateAL();
         }
-        if (!srHuh.equals(0)) {
-            ScatteredRandom.populateAL();
-        }
-        if (!bcHuh.equals(0)) {
-            BaileyCrandall.populateAL();
-        }
-        if (!jrHuh.equals(0)) {
-            JavaRandom.populateAL();
-        }
-        if (!randuHuh.equals(0)) {
-            RANDU.populateAL();
-        }
+
         int newSize = al.size();
         stagger.increaseBy(newSize - oldSize);
+//        } else {
+//            int oldSize = al.size();
+//            ScatteredRandom.populateAL();
+//            int newSize = al.size();
+//            stagger.increaseBy(newSize - oldSize);
+//        }}
     }
-
 }

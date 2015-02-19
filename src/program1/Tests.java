@@ -12,7 +12,7 @@ public class Tests extends Utilities implements Constants {
             jrTest();
             rbrTest();
             srTest();
-
+            mtTest();
         }
         System.out.println("All tests passed " + numberOfTests + " times! :)\n");
     }
@@ -94,6 +94,16 @@ public class Tests extends Utilities implements Constants {
             } else if (d < 0) {
                 throw new RuntimeException("rbrTest - d < 0");
             }
+        }
+    }
+
+    private static void mtTest() {
+        MersenneTwister mt = new MersenneTwister();
+        double d = mt.nextDouble();
+        if (d >= 1) {
+            throw new RuntimeException("bcTest - d >= 1");
+        } else if (d < 0) {
+            throw new RuntimeException("bcTest - d < 0");
         }
     }
 
