@@ -57,24 +57,26 @@ public class Graph extends JPanel implements Constants {
     }
 
     public static void shift() {
-
         int oldSize = al.size();
-        System.out.println(mtHuh.score);
-        System.out.println(rbrHuh.score);
         if (mtHuh.score > 0) {
             MersenneTwister.populateAL();
         }
         if (rbrHuh.score > 0) {
             ReallyBadRandom.populateAL();
         }
-
+        if (bcHuh.score > 0) {
+            BaileyCrandall.populateAL();
+        }
+        if (jrHuh.score > 0) {
+            JavaRandom.populateAL();
+        }
+        if (srHuh.score > 0) {
+            ScatteredRandom.populateAL();
+        }
+        if (randuHuh.score > 0) {
+            RANDU.populateAL();
+        }
         int newSize = al.size();
         stagger.increaseBy(newSize - oldSize);
-//        } else {
-//            int oldSize = al.size();
-//            ScatteredRandom.populateAL();
-//            int newSize = al.size();
-//            stagger.increaseBy(newSize - oldSize);
-//        }}
     }
 }

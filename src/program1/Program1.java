@@ -9,10 +9,10 @@ public class Program1 extends JPanel implements Constants {
 
 //         uncomment one at a time
 //        BaileyCrandall.populateAL();
-//        RANDU.populateAL();
+        RANDU.populateAL();
 //        MersenneTwister.populateAL();
 //        JavaRandom.populateAL();
-        ReallyBadRandom.populateAL();
+//        ReallyBadRandom.populateAL();
 //        ScatteredRandom.populateAL();
 
         Graph.go();

@@ -3,6 +3,7 @@ package program1;
 // source: https://github.com/gkop/randCrush
 // see: http://www.hep.wisc.edu/~dasu/classes/physics601/lecture5/IBMStory.pdf
 import java.math.BigInteger;
+import static program1.Utilities.*;
 
 public class RANDU implements Constants {
 
@@ -11,7 +12,7 @@ public class RANDU implements Constants {
 
     public RANDU() {
         a = 65539;
-        c = 0;
+        c = randomInt(0,11);
         m = (new BigInteger("2")).pow(31).longValue();
         reset();
     }
