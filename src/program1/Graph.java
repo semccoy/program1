@@ -2,6 +2,7 @@ package program1;
 
 import java.awt.*;
 import java.awt.image.*;
+import java.util.Random;
 import javax.swing.*;
 import static program1.Utilities.*;
 
@@ -13,14 +14,6 @@ public class Graph extends JPanel implements Constants {
         Image img = drawPixels();
         g.drawImage(img, indentX, indentY, this);
 
-    }
-
-    public void paint2(Graphics g) {
-        for (int i = 0; i < 3; i++) {
-            Image img2 = drawPixels();
-            g.drawImage(img2, indentX, indentY, this);
-
-        }
     }
 
     public static Image drawPixels() {
@@ -50,6 +43,7 @@ public class Graph extends JPanel implements Constants {
             frame.setVisible(true);
             delay(1000);
             rbrPeriod.increaseBy(periodChange);
+            srPeriod.score = randomInt(10000, 15000);
             shift();
         }
     }
@@ -63,10 +57,17 @@ public class Graph extends JPanel implements Constants {
     }
 
     public static void shift() {
-        int oldSize = al.size();
-        ReallyBadRandom.populateAL();
-        int newSize = al.size();
-        stagger.increaseBy(newSize - oldSize);
+        if (srHuh.equals(0)) {
+            int oldSize = al.size();
+            ReallyBadRandom.populateAL();
+            int newSize = al.size();
+            stagger.increaseBy(newSize - oldSize);
+        } else {
+            int oldSize = al.size();
+            ScatteredRandom.populateAL();
+            int newSize = al.size();
+            stagger.increaseBy(newSize - oldSize);
+        }
     }
 
 }

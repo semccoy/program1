@@ -11,8 +11,8 @@ public class Program1 extends JPanel implements Constants {
 //        BaileyCrandall.populateAL();
 //        RANDU.populateAL();
 //        JavaRandom.populateAL();
-        ReallyBadRandom.populateAL();
-//        ScatteredRandom.populateAL();
+//        ReallyBadRandom.populateAL();
+        ScatteredRandom.populateAL();
 
         Graph.go();
 

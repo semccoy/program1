@@ -11,9 +11,10 @@ public class ScatteredRandom implements Constants {
     }
 
     public static void populateAL() {
+        srHuh.increaseBy(1);
         genPeriodList(srPeriod.score);
-        for (int i = 0; i < (width * height - srPeriod.score) / srPeriod.score; i++) {
-            al.add(8.0);
+        for (int i = 0; i < width * height; i++) {
+            al.add(temp.get(i % srPeriod.score));
         }
     }
 

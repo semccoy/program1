@@ -8,7 +8,7 @@ public interface Constants {
     ArrayList<Double> al = new ArrayList<Double>();
 
     // amazing stuff
-    int coolLoops = 2; // number of times the image updates (default = 1)
+    int coolLoops = 5; // number of times the image updates (default = 1)
     int periodChange = 0; // can make this whatever
 
     // testing stuff
@@ -16,8 +16,9 @@ public interface Constants {
 
     // functionality stuff
     Score rbrPeriod = new Score(10);
-    Score srPeriod = new Score(randomInt(10000,15000));
+    Score srPeriod = new Score(randomInt(10000, 15000));
     Score playOnHuh = new Score(1);
+    Score srHuh = new Score(0);
 
     // background stuff
     int width = 1440;
