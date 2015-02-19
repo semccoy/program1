@@ -23,7 +23,7 @@ public class Graph extends JPanel implements Constants {
             for (int y = 0; y < paneY; y++) {
                 // takes inputs in range [0,1)
                 int opacity = (int) Math.floor(al.get(pos + stagger.score) * 256);
-                Color darkness = new Color(opacity, opacity, 255);
+                Color darkness = new Color(opacity, opacity, opacity);
                 g.setColor(darkness);
                 g.drawLine(x, y, x, y);
                 pos++;
